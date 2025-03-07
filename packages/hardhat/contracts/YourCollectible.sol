@@ -29,21 +29,16 @@ contract YourCollectible is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable 
         This function sets _addressTokenApprovals so that we can track and enumerate the approved tokens for each token
      */
     function _approve(address to, uint256 tokenId, address auth, bool emitEvent) internal override {
-        address previousApproved = getApproved(tokenId);
+        // TODO: get the currently approved address for the tokenId
 
-        super._approve(to, tokenId, auth, emitEvent);
+        // TODO: call the _approve logic of the parent ERC721 smart contract
 
-        if (previousApproved == to){
-            return;
-        }
+        // TODO: if the previous approved is the same as the new approved address return
 
-        if (to != address(0)){
-            _addressTokenApprovals[to].push(tokenId);
-        }
+        // TODO: add the tokenId to the address's approved array
 
-        _deleteAddressApproval(previousApproved, tokenId);
+        // TODO: delete the previous tokenId from the address's approved array
     }
-
 
     function approvedBalanceOf(address owner) public view virtual returns (uint256) {
         if (owner == address(0)) {
