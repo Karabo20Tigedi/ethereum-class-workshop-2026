@@ -1,3 +1,4 @@
+// @ts-nocheck — reference copy; imports assume packages/hardhat paths (see lesson wiki)
 import { expect } from "chai";
 import { ethers } from "hardhat";
 import { YourCollectible } from "../typechain-types/contracts";

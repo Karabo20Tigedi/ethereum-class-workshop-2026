@@ -1,0 +1,3 @@
+{
+  "eslint.ignorePatterns": ["**/02-non-fungible-tokens/solutions/**"]
+}
