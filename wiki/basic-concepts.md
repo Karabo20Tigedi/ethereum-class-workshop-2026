@@ -1,6 +1,6 @@
 # Basic Concepts
 
-Solidity is a programming language that looks similar to JavaScript and is used to write smart contracts on Ethereum. Solidity code needs to be compiled in bytecode in order to be understood by the Ethereum Virtual Machine (EVM). The language is strongly typed with the possibility to define custom data structures.
+Solidity is a programming language that looks similar to JavaScript and is used to write smart contracts on Ethereum. Solidity code needs to be compiled in bytecode in order to be understood by the Ethereum Virtual Machine (EVM). The language is strongly typed with the possibility to define custom data structures. A great way to learn solidity is by following these tutorials at [solidity by example](https://solidity-by-example.org/)
 
 ### File Ending
 
