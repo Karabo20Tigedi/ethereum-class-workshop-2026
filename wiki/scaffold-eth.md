@@ -20,7 +20,7 @@ Here are the main components of a development stack for building dApps with Scaf
 
 2. [Wagmi](https://wagmi.sh/react/getting-started): Provides essential React hooks, making it easier to interact with the Ethereum network from a frontend.
 
-3. [Viem](https://viem.sh/docs/getting-started.html): A low-level library offering Ethereum primitives, serving as an alternative to ethers.js or web3.js for interacting with Ethereum smart contracts.
+3. [Viem](https://viem.sh/docs/getting-started.html): A low-level library offering Ethereum primitives, serving as an alternative to [ethers.js](https://docs.ethers.org/v6/getting-started) or web3.js for interacting with Ethereum smart contracts.
 
 4. [Next.js](https://nextjs.org/docs): A popular React framework that simplifies frontend development and offers useful pre-made hooks to build the UI.
 
