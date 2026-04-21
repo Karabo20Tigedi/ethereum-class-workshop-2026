@@ -36,6 +36,14 @@ OpenSea [describes metadata](https://docs.opensea.io/docs/metadata-standards) ro
 
 For a practical walkthrough of how NFTs are traded on OpenSea (and related transfer/security implications), see: [How NFTs are traded on OpenSea and how hackers can transfer your NFTs](https://medium.com/coinmonks/how-nfts-are-traded-on-opensea-and-how-hackers-can-transfer-your-nfts-c491455087).
 
+### What this lesson adds
+
+This lesson extends the app so that the ERC721 smart contract tracks the approved NFTs for addresses. The lesson adds an override of `_approve` so that any address approved for a token can be updated in a map. The parent `ERC721` logic still sets the canonical approval and emits events; the custom logic then keeps per-address bookkeeping in sync whenever approval changes.
+
+- `_approve(to, tokenId, auth)`: records the previous approvee, runs the parent approval update, skips redundant work when approval does not change, adds `tokenId` to the new approvee's tracked list (if not zero address), and removes `tokenId` from the previous approvee's tracked list.
+- `approvedBalanceOf(owner)`: returns how many token approvals are currently tracked for an address, based on `_addressTokenApprovals`.
+- `approvedTokenByIndex(owner, index)`: returns the token ID at a specific index in an address's approval list, allowing indexed lookup of approved tokens.
+
 ---
 
 ## Practical — checklist
@@ -76,15 +84,15 @@ Run the tests again. The case **`Should not allow minting to contract address wi
 Implemented in `packages/hardhat/contracts/YourCollectible.sol` (override of OpenZeppelin’s internal `_approve`).
 
 - [ ] **TODO:** Read the **currently approved** address for `tokenId`.  
-      _Note:_ You need the previous approvee to remove `tokenId` from tracking when approvals change.
+       _Note:_ You need the previous approvee to remove `tokenId` from tracking when approvals change.
 
 - [ ] **TODO:** Call the **parent** `ERC721` `_approve` logic (OpenZeppelin’s internal implementation).
 
 - [ ] **TODO:** If the previous approved address equals the **new** approved address, **return** early.  
-      _Note:_ Avoid duplicate work / redundant updates when nothing changes.
+       _Note:_ Avoid duplicate work / redundant updates when nothing changes.
 
 - [ ] **TODO:** Add `tokenId` to the **new** approver’s list in `_addressTokenApprovals`.  
-      _Note:_ Do not treat the zero address as a real approver for this bookkeeping.
+       _Note:_ Do not treat the zero address as a real approver for this bookkeeping.
 
 - [ ] **TODO:** Remove `tokenId` from the **previous** approver’s array in `_addressTokenApprovals`.
 
