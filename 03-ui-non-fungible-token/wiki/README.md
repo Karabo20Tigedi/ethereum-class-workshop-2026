@@ -30,7 +30,7 @@ cd packages/hardhat
 yarn test test/YourCollectible.ts
 ```
 
-Note: the tests are expected to fail at first. If you complete the TODOs in the practical correctly, the tests should pass.
+Note: the tests should pass.
 
 ## Source
 
